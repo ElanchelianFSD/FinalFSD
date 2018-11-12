@@ -17,20 +17,21 @@ namespace ProjectManager.DataAccess.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Project()
         {
-            this.Tasks = new HashSet<Task>();
             this.Users = new HashSet<User>();
+            this.Tasks = new HashSet<Task>();
         }
     
         public int Project_ID { get; set; }
         public string Project1 { get; set; }
-        public Nullable<System.DateTime> Start_Date { get; set; }
+        public System.DateTime Start_Date { get; set; }
         public Nullable<System.DateTime> End_Date { get; set; }
         public Nullable<int> Priority { get; set; }
         public bool Status { get; set; }
+        public string Manager_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Tasks { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Task> Tasks { get; set; }
     }
 }

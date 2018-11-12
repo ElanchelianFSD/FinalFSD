@@ -22,16 +22,17 @@ namespace ProjectManager.DataAccess.Entity
     
         public int Task_ID { get; set; }
         public Nullable<int> Parent_ID { get; set; }
-        public int Project_ID { get; set; }
+        public Nullable<int> Project_ID { get; set; }
+        public Nullable<int> User_ID { get; set; }
         public string Task1 { get; set; }
         public System.DateTime Start_Date { get; set; }
         public Nullable<System.DateTime> End_Date { get; set; }
         public int Priority { get; set; }
-        public bool Status { get; set; }
         public bool IsActive { get; set; }
     
         public virtual ParentTask ParentTask { get; set; }
         public virtual Project Project { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
     }

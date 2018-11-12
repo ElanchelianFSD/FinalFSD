@@ -2,3 +2,4 @@ C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.DataContract\bin\Deb
 C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.DataContract\bin\Debug\ProjectManager.DataContract.pdb
 C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.DataContract\obj\Debug\ProjectManager.DataContract.dll
 C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.DataContract\obj\Debug\ProjectManager.DataContract.pdb
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.DataContract\obj\Debug\ProjectManager.DataContract.csprojResolveAssemblyReference.cache

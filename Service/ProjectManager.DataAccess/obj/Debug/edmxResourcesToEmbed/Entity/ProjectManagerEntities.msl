@@ -4,20 +4,34 @@
     <EntitySetMapping Name="ParentTasks">
       <EntityTypeMapping TypeName="ProjectManagerModel.ParentTask">
         <MappingFragment StoreEntitySet="ParentTask">
-          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
           <ScalarProperty Name="Parent_Task" ColumnName="Parent_Task" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Projects">
       <EntityTypeMapping TypeName="ProjectManagerModel.Project">
         <MappingFragment StoreEntitySet="Project">
-          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
-          <ScalarProperty Name="Project1" ColumnName="Project" />
-          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
-          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
-          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Manager_ID" ColumnName="Manager_ID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="Project1" ColumnName="Project" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ProjectManagerModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Task_ID" ColumnName="Task_ID" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -25,26 +39,14 @@
       <EntityTypeMapping TypeName="ProjectManagerModel.Task">
         <MappingFragment StoreEntitySet="Task">
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="Task_ID" ColumnName="Task_ID" />
-          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
-          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
-          <ScalarProperty Name="Task1" ColumnName="Task" />
-          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
-          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="ProjectManagerModel.User">
-        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="Task1" ColumnName="Task" />
           <ScalarProperty Name="User_ID" ColumnName="User_ID" />
-          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
-          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
-          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
           <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
           <ScalarProperty Name="Task_ID" ColumnName="Task_ID" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

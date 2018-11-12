@@ -99,11 +99,9 @@ export class AppComponent implements OnInit {
       Project: [''],
       Priority: 0,
       Manager_ID: [''],
-      Status: 0,
-      TaskCount: 0,
-      Action: '',
-      Is_Active: 1,
-      ProjStatus: [''],
+      Status: 1,
+      NoOfTasks: 0,           
+      CompletedTasks: [''],
       selectedManager: [{ disabled: true, value: '' }, Validators.required],
       Active_Progress:['']
     });
@@ -117,12 +115,10 @@ export class AppComponent implements OnInit {
       Parent_ID: [''],
       Parent_Task: [''],
       Start_Date: ['', Validators.required],
-      End_Date: [''],
-      Is_Active: 0,
+      End_Date: [''],    
       IsActive: 0,
-      Project_ID: 0,
-      Status: 0,
-      Action: [''],
+      Project_ID: 0,      
+      ParentTask: [''],
       User_ID: [''],
       selectedProject: [{ disabled: true, value: '' }, Validators.required],
       selectedParentTask: [{ disabled: true, value: '' }, Validators.required],
@@ -170,8 +166,8 @@ export class AppComponent implements OnInit {
 
   // Common Code 
 
-  callAllMethods() {
-    this.getProjectName();
+  callAllMethods() {    
+    //this.getProjectName();
     this.getProjectDetails();
     this.getTaskManager();
     this.getUserDetails();
@@ -190,11 +186,13 @@ export class AppComponent implements OnInit {
   getProjectDetails() {
     this.appServices.getProjectDetails().subscribe(data => {
       this.projDetails = data;
+      this.projectNameList = data;
     });
   };
 
   getManagerDetails() {
-    this.appServices.getManagerDetails().subscribe(data => {
+    
+    this.appServices.getManagerDetails().subscribe(data => {      
       this.managerDetails = data;
     });
 
@@ -224,7 +222,8 @@ export class AppComponent implements OnInit {
           Start_Date: this.myProjectForm.value.Start_Date,
           End_Date: this.myProjectForm.value.End_Date,
           Priority: this.myProjectForm.value.Priority_Project,
-          Manager_ID: vMangerName
+          Manager_ID: vMangerName,
+          Status: this.myProjectForm.value.Status
         };
 
         this.appServices.submitProject(vProjForm).subscribe(data => {
@@ -252,6 +251,7 @@ export class AppComponent implements OnInit {
   };
 
   EditProject(proj) {
+    debugger;
     proj.Project_Name = proj.Project;
     proj.Priority_Project = proj.Priority;
     proj.Employee_ID = proj.Manager_ID;
@@ -261,7 +261,8 @@ export class AppComponent implements OnInit {
       proj.Start_Date = proj.Start_Date.slice(0, -9);
     if (proj.End_Date != null)
       proj.End_Date = proj.End_Date.slice(0, -9);
-    
+    proj.Project_ID = proj.Project_ID;
+    proj.Status = proj.Status;
       this.myProjectForm.setValue(proj);
   };
 
@@ -324,10 +325,10 @@ export class AppComponent implements OnInit {
           End_Date: this.myForm.value.End_Date,
           Priority: this.myForm.value.Priority,
           Project_ID: vProjName,
-          User_ID: vUserName
+          User_ID: vUserName,
+          IsActive:1
         };
-
-
+        debugger;
         this.appServices.submitTask(vTaskForm).subscribe(data => {
           if (data) {
             Swal('success', `Data ${VID == 0 ? 'Added' : 'Updated'} successfully...`, 'success');
@@ -357,9 +358,8 @@ export class AppComponent implements OnInit {
   public EditTask(task) {
 
     this.isTaskUpdate = true;
-    this.filter = false;
-
-    task.IsActive = 0;
+    this.filter = false;  
+    task.IsActive = 1;
     task.selectedProject = task.Project_ID;
     task.selectedParentTask = task.Parent_ID;
     task.selectedUser = task.User_ID;
@@ -373,7 +373,8 @@ export class AppComponent implements OnInit {
   };
 
   public EndTask(task) {
-
+    task.IsActive = 0;
+    debugger;
     if (task.End_Date != null && task.End_Date != "") {
       this.appServices.updateEndTask(task).subscribe(data => {
 
@@ -406,8 +407,12 @@ export class AppComponent implements OnInit {
 
   AddUserSubmit() {
     this.addUserSubmitted = true;
-    if (this.addUserForm.valid) {
+    if (this.addUserForm.valid) {      
       var VID = this.addUserForm.value.User_ID;
+      if(VID == null)
+      {
+        VID=0;
+      }
       this.appServices.submitUser(this.addUserForm.value).subscribe(data => {
         if (data) {
           Swal('Success', `Data ${VID == 0 ? 'Added' : 'Updated'} successfully...`, 'success');
@@ -511,7 +516,7 @@ export class AppComponent implements OnInit {
 
   };
 
-  ProjectSearch() {
+  ProjectSearch() {    
     this.selectedProject = this.myForm.get('selectedProject').value;
     $("#projNameModal").modal();
 

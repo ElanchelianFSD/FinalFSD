@@ -76,9 +76,13 @@
     <Compile Include="Entity\User.cs">
       <DependentUpon>ProjectManagerEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="ITaskManagerDataAccess.cs" />
+    <Compile Include="ProjectDataAccess\IProjectDataAccess.cs" />
+    <Compile Include="TaskDataAccess\ITaskManagerDataAccess.cs" />
+    <Compile Include="UserDataAccess\IUserDataAccess.cs" />
+    <Compile Include="ProjectDataAccess\ProjectDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskManagerDataAccess.cs" />
+    <Compile Include="TaskDataAccess\TaskManagerDataAccess.cs" />
+    <Compile Include="UserDataAccess\UserDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

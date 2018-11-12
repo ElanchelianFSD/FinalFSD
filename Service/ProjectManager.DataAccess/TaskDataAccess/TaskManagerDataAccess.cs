@@ -21,7 +21,7 @@ namespace ProjectManager.DataAccess
                 parentTaskDetails = (from parentTask in taskManagerEntity.ParentTasks
                                      select new ParentTaskDetails
                                      {
-                                         ParentId = parentTask.Parent_ID,
+                                         Parent_ID = parentTask.Parent_ID,
                                          Parent_Task = parentTask.Parent_Task
                                      }).ToList();
             }
@@ -39,14 +39,18 @@ namespace ProjectManager.DataAccess
                              orderby taskDts.Start_Date, taskDts.Task_ID descending
                              select new TaskModel
                              {
-                                 ParentId = taskDts.ParentTask.Parent_ID,
+                                 Parent_ID = taskDts.ParentTask.Parent_ID,
                                  ParentTask = taskDts.ParentTask.Parent_Task,
-                                 TaskId = taskDts.Task_ID,
+                                 Task_ID = taskDts.Task_ID,
                                  Task = taskDts.Task1,
-                                 StartDate = taskDts.Start_Date,
-                                 EndDate = taskDts.End_Date,
+                                 Start_Date = taskDts.Start_Date,
+                                 End_Date = taskDts.End_Date,
                                  Priority = taskDts.Priority,
-                                 IsActive = taskDts.IsActive
+                                 IsActive = taskDts.IsActive,
+                                 User_ID = taskDts.User_ID,
+                                 Project_ID = taskDts.Project_ID,
+                                 Project_Name = taskDts.Project.Project1,
+                                 Parent_Task =taskDts.ParentTask.Parent_Task
                              }).ToList();
             }
             return taskModel;
@@ -59,11 +63,13 @@ namespace ProjectManager.DataAccess
             {
                 Task objtask = new Task();
                 objtask.Task1 = taskModel.Task;
-                objtask.Parent_ID = taskModel.ParentId;
-                objtask.Start_Date = taskModel.StartDate;
-                objtask.End_Date = taskModel.EndDate;
+                objtask.Parent_ID = taskModel.Parent_ID;
+                objtask.Start_Date = taskModel.Start_Date;
+                objtask.End_Date = taskModel.End_Date;
                 objtask.IsActive = true;
                 objtask.Priority = taskModel.Priority;
+                objtask.Project_ID = taskModel.Project_ID;
+                objtask.User_ID = taskModel.User_ID;
                 taskManagerEntity.Tasks.Add(objtask);
                 try
                 {
@@ -83,15 +89,17 @@ namespace ProjectManager.DataAccess
             int returnVal = 0;
             using (ProjectManagerEntities taskManagerEntity = new ProjectManagerEntities())
             {
-                Task objtask = taskManagerEntity.Tasks.Where(x => x.Task_ID == taskModel.TaskId).FirstOrDefault();
+                Task objtask = taskManagerEntity.Tasks.Where(x => x.Task_ID == taskModel.Task_ID).FirstOrDefault();
                 if (objtask != null)
                 {
                     objtask.Task1 = taskModel.Task;
-                    objtask.Parent_ID = taskModel.ParentId;
-                    objtask.Start_Date = taskModel.StartDate;
-                    objtask.End_Date = taskModel.EndDate;
+                    objtask.Parent_ID = taskModel.Parent_ID;
+                    objtask.Start_Date = taskModel.Start_Date;
+                    objtask.End_Date = taskModel.End_Date;
                     objtask.IsActive = taskModel.IsActive;
                     objtask.Priority = taskModel.Priority;
+                    objtask.Project_ID = taskModel.Project_ID;
+                    objtask.User_ID = taskModel.User_ID;
                     taskManagerEntity.Entry(objtask).State = EntityState.Modified;
                     try
                     {

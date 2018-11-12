@@ -8,7 +8,7 @@ namespace ProjectManager.DataContract
 {
     public class ParentTaskDetails
     {
-        public int ParentId { get; set; }
+        public int Parent_ID { get; set; }
         public string Parent_Task { get; set; }
 
     }

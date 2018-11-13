@@ -11,6 +11,7 @@ namespace ProjectManager.Api.Controllers
     public class ProjectController : ApiController
     {
         ProjectBusiness projectBusiness;
+
         [HttpGet]
         [Route("api/ProjectManager/Project/GetAll")]
         public List<ProjectModel> GetAllProjectDetails()

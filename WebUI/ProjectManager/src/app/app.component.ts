@@ -78,16 +78,9 @@ export class AppComponent implements OnInit {
 
 
   public ngOnInit() {
-
-
-    // Common Code 
-
     this.callAllMethods();
 
-
-
-    // Code for Project screen
-
+   //Project model
     this.myProjectForm = this.fb.group({
       Project_ID: 0,
       Project_Name: ['', Validators.required],
@@ -106,7 +99,7 @@ export class AppComponent implements OnInit {
       Active_Progress:['']
     });
 
-    // Code for Task screen
+    // Task Model
 
     this.myForm = this.fb.group({
       Task_ID: 0,
@@ -128,7 +121,7 @@ export class AppComponent implements OnInit {
     });
 
 
-    // Code for User screen  
+    // User Model
 
     this.addUserForm = this.fb.group({
       First_Name: ['', Validators.required],
@@ -143,6 +136,7 @@ export class AppComponent implements OnInit {
       searchedProject: [{ disabled: true, value: '' }]
     });
 
+//Search model pop up
 
     $('.modal').on('hidden.bs.modal', (e) => {
       if (e.target.id == 'managerModal') {
@@ -164,10 +158,8 @@ export class AppComponent implements OnInit {
 
   };
 
-  // Common Code 
-
-  callAllMethods() {    
-    //this.getProjectName();
+  //Load Project, User Task details 
+  callAllMethods() {        
     this.getProjectDetails();
     this.getTaskManager();
     this.getUserDetails();
@@ -175,7 +167,7 @@ export class AppComponent implements OnInit {
     this.getParentDetails();
   };
 
-  // Code for Project screen
+  // Get  Parent details
 
   getParentDetails() {
     this.appServices.getParentTask().subscribe(data => {
@@ -183,6 +175,7 @@ export class AppComponent implements OnInit {
     });
   };
 
+  // Get active Project details
   getProjectDetails() {
     this.appServices.getProjectDetails().subscribe(data => {
       this.projDetails = data;
@@ -190,12 +183,11 @@ export class AppComponent implements OnInit {
     });
   };
 
-  getManagerDetails() {
-    
+  // Get  manager details
+  getManagerDetails() {    
     this.appServices.getManagerDetails().subscribe(data => {      
       this.managerDetails = data;
     });
-
   };
 
   getProjectName() {
@@ -204,7 +196,7 @@ export class AppComponent implements OnInit {
     });
   };
 
-
+// Add Project
   onProjectSubmit() {
     this.projectSubmitted = true;
     var vMangerName = this.selectedManager;
@@ -250,6 +242,7 @@ export class AppComponent implements OnInit {
     }
   };
 
+  /// Edit Project Details
   EditProject(proj) {
     debugger;
     proj.Project_Name = proj.Project;
@@ -266,12 +259,13 @@ export class AppComponent implements OnInit {
       this.myProjectForm.setValue(proj);
   };
 
-
+// Reset Project Details
   public ResetProject() {
     this.myProjectForm.reset();
     this.submitted = false;
   }
 
+  // Suspend Project Details
   public SuspendProject(proj) {
     proj.Status = 0;
     this.appServices.SuspendProject(proj).subscribe(data => {
@@ -285,20 +279,20 @@ export class AppComponent implements OnInit {
       }
     });
   }
+// End Project section
+
+// Task Manager section
 
 
-  // Code for Task screen
-
+//Get Task Manager
   getTaskManager() {
-
     this.appServices.getTaskManager().subscribe(data => {
-
       this.taskDetails = data;
-
       this.setPage(1);
     });
   };
 
+  // Add Task Manager
   onSubmit() {
     this.submitted = true;
     var VID = this.myForm.value.Task_ID;
@@ -355,6 +349,7 @@ export class AppComponent implements OnInit {
     }
   };
 
+  // Edit Task details
 
   public EditTask(task) {
 
@@ -373,6 +368,7 @@ export class AppComponent implements OnInit {
     this.myForm.setValue(task);
   };
 
+  //End task details
   public EndTask(task) {
     task.IsActive = 0;
     debugger;
@@ -388,22 +384,23 @@ export class AppComponent implements OnInit {
     }
 
   }
-
+//Reset Task Details
   public ResetTask() {
     this.myForm.reset();
     this.submitted = false;
   }
+/// End Task Manager section
 
-  // Code for User screen  
+//User section details
 
+//Get User details
   getUserDetails() {
-
     this.appServices.getUserDetails().subscribe(data => {
       this.userDetails = data;
     });
   };
 
-
+// Add new user
   AddUserSubmit() {
     this.addUserSubmitted = true;
     if (this.addUserForm.valid) {      
@@ -441,16 +438,20 @@ export class AppComponent implements OnInit {
     }
   };
 
+// Edit user details
   public EditUser(user) {
     this.isUserUpdate = true;
     this.addUserForm.setValue(user);    
   };
 
+  // Delete user details
   public DeleteUser(user) {
     $("#deleteModal").modal();
     this.deleteUserValue = user;
   };
 
+
+  //Delete user
   public ConfirmDeleteUser() {
     var vDeleteUserValue = this.deleteUserValue;
     this.appServices.deleteUser(vDeleteUserValue).subscribe(data => {
@@ -466,6 +467,7 @@ export class AppComponent implements OnInit {
     });
   };
 
+  // Reset USer details
   public AddUserResetTask() {
     this.addUserForm.reset();
     this.addUserSubmitted = false;
@@ -473,7 +475,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  // Common function
+
 
   setPage(page: number) {
     if (this.pager.totalPages != 0) {

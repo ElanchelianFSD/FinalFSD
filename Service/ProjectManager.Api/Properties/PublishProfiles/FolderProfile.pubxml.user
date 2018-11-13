@@ -6,8 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_NewBackgroundProfile>True</_NewBackgroundProfile>
-    <_PublishTargetUrl>C:\Users\Elanchelian\Publish</_PublishTargetUrl>
+    <_NewBackgroundProfile>False</_NewBackgroundProfile>
+    <_PublishTargetUrl>C:\Users\Elanchelian\Publish\FinalFSD</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Capsule.TaskManager.Api.dll">
@@ -26,31 +26,106 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/10/2018 15:34:46</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>11/09/2013 09:10:04</publishTime>
+      <publishTime>09/11/2013 09:10:04</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>11/09/2013 09:10:04</publishTime>
+      <publishTime>09/11/2013 09:10:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>01/05/2012 11:08:46</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/06/2013 13:33:54</publishTime>
     </File>
+    <File Include="bin/ProjectManager.Api.dll">
+      <publishTime>11/13/2018 18:45:36</publishTime>
+    </File>
+    <File Include="bin/ProjectManager.Business.dll">
+      <publishTime>11/13/2018 18:45:34</publishTime>
+    </File>
+    <File Include="bin/ProjectManager.DataAccess.dll">
+      <publishTime>11/13/2018 18:45:33</publishTime>
+    </File>
+    <File Include="bin/ProjectManager.DataAccess.dll.config">
+      <publishTime>11/08/2018 15:15:54</publishTime>
+    </File>
+    <File Include="bin/ProjectManager.DataContract.dll">
+      <publishTime>11/13/2018 18:45:30</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>01/10/2013 20:54:24</publishTime>
+      <publishTime>10/01/2013 20:54:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>10/01/2013 20:54:26</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/10/2013 20:54:24</publishTime>
+      <publishTime>10/01/2013 20:54:24</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>01/10/2013 20:54:26</publishTime>
+      <publishTime>10/01/2013 20:54:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>10/01/2013 20:54:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>10/01/2013 20:54:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>10/01/2013 20:54:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>10/01/2013 20:54:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>11/08/2018 14:28:07</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>11/08/2018 14:28:07</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>11/08/2018 14:28:07</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>11/08/2018 14:28:07</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/14/2018 20:06:26</publishTime>
+      <publishTime>11/08/2018 15:17:24</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/05/2018 19:19:07</publishTime>
+      <publishTime>11/08/2018 14:28:33</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>11/08/2018 14:28:07</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>11/08/2018 14:28:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>11/08/2018 14:28:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>11/08/2018 14:28:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>11/08/2018 14:28:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>11/08/2018 14:28:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>11/08/2018 14:28:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>11/08/2018 14:28:17</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>11/08/2018 14:28:17</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/10/2018 19:19:26</publishTime>
+      <publishTime>11/13/2018 18:45:37</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -1,0 +1,12 @@
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\ProjectManager.Business.dll
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\ProjectManager.Business.pdb
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\ProjectManager.DataAccess.dll
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\ProjectManager.DataContract.dll
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\EntityFramework.dll
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\ProjectManager.DataAccess.pdb
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\ProjectManager.DataAccess.dll.config
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\ProjectManager.DataContract.pdb
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\bin\Release\EntityFramework.xml
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\obj\Release\ProjectManager.Business.csprojResolveAssemblyReference.cache
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\obj\Release\ProjectManager.Business.dll
+C:\Users\Elanchelian\Source\FinalFSD\Service\ProjectManager.Business\obj\Release\ProjectManager.Business.pdb

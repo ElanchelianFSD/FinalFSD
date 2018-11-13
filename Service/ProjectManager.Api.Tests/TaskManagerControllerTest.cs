@@ -53,12 +53,14 @@ namespace ProjectManager.Api.Tests
             taskManagerController = new TaskManagerController();
             TaskModel taskModel = new TaskModel
             {
-                ParentId = 1,
+                Parent_ID = 2,
                 Task = "This is the Unit test task",
-                StartDate = DateTime.Parse("26-09-2018"),
-                EndDate = DateTime.Parse("10-10-2018"),
-                Priority = 1,
-                IsActive = true
+                Start_Date = DateTime.Parse("15-11-2018"),
+                End_Date = DateTime.Parse("25-11-2018"),
+                Priority = 2,
+                IsActive = true,
+                Project_ID = 3,
+                User_ID = 1
             };
             //Act
             int returnVal = taskManagerController.InsertTaskDetails(taskModel);
@@ -78,13 +80,15 @@ namespace ProjectManager.Api.Tests
             taskManagerController = new TaskManagerController();
             TaskModel taskModel = new TaskModel
             {
-                ParentId = 1,
-                TaskId = 1,
-                Task = "This is Updated test task",
-                StartDate = DateTime.Parse("26-09-2018"),
-                EndDate = DateTime.Parse("10-10-2018"),
-                Priority = 1,
-                IsActive = true
+                Task_ID=5,
+                Parent_ID = 2,
+                Task = "This is the Unit test Updated task",
+                Start_Date = DateTime.Parse("15-11-2018"),
+                End_Date = DateTime.Parse("25-11-2018"),
+                Priority = 5,
+                IsActive = true,
+                Project_ID = 2,
+                User_ID = 1
             };
             //Act
             int returnVal = taskManagerController.UpdateEndTask(taskModel);

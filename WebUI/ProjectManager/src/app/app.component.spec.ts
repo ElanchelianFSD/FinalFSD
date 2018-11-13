@@ -23,17 +23,17 @@ describe('AppComponent', () => {
 
   const parentTaskDetail: any = [
     {
-      "Parent_Task": "Cognizant",
+      "Parent_Task": "Parent Task 1",
       "Parent_ID": 1
 
     },
     {
-      "Parent_Task": "Internal",
+      "Parent_Task": "Parent Task 2",
       "Parent_ID": 2
 
     },
     {
-      "Parent_Task": "External",
+      "Parent_Task": "Parent Task 3",
       "Parent_ID": 3
 
     }
@@ -46,13 +46,13 @@ describe('AppComponent', () => {
       "Task_ID": "1",
       "Project": "Project Name1",
       "Parent_ID": 2,
-      "Parent_Task": "Cognizant",
+      "Parent_Task": "Parent Task 1",
       "Task": "Test 1",
       "Start_Date": "09/07/2018",
       "End_Date": "09/08/2018",
       "Priority": 4,
       "Manager_ID": 123,
-      "ProjStatus": "Completed",
+      "ProjStatus": "10%",
       "Status": 0,
       "Is_Active": 1,
       "User_ID": 4,
@@ -63,13 +63,13 @@ describe('AppComponent', () => {
       "Task_ID": "1",
       "Project": "Project Name1",
       "Parent_ID": 2,
-      "Parent_Task": "Cognizant",
+      "Parent_Task": "Parent Task 2",
       "Task": "Test 1",
       "Start_Date": "09/07/2018",
       "End_Date": "09/08/2018",
       "Priority": 4,
       "Manager_ID": 123,
-      "ProjStatus": "Completed",
+      "ProjStatus": "12%",
       "Status": 0,
       "Is_Active": 1,
       "User_ID": 4,
@@ -80,13 +80,13 @@ describe('AppComponent', () => {
       "Task_ID": "1",
       "Project": "Project Name1",
       "Parent_ID": 2,
-      "Parent_Task": "Cognizant",
+      "Parent_Task": "Parent Task 3",
       "Task": "Test 1",
       "Start_Date": "09/07/2018",
       "End_Date": "09/08/2018",
       "Priority": 4,
       "Manager_ID": 123,
-      "ProjStatus": "Completed",
+      "ProjStatus": "100%",
       "Status": 0,
       "Is_Active": 1,
       "User_ID": 4,
@@ -141,11 +141,11 @@ describe('AppComponent', () => {
 
     const managerDetails: any = [
     {
-      "Manager_ID": "1"
+      "Manager_ID": "101"
 
     },
     {
-      "Manager_ID": "2"
+      "Manager_ID": "102"
     }
   ];
 
@@ -165,15 +165,15 @@ describe('AppComponent', () => {
   const userDetails: any = [
     {
       "User_ID": "1",
-      "First_Name": "Vijay",
-      "Last_Name": "Palani",
-      "Employee_ID": "123"
+      "First_Name": "Elan",
+      "Last_Name": "Chelian",
+      "Employee_ID": "101"
     },
     {
       "User_ID": "2",
-      "First_Name": "Vijay",
-      "Last_Name": "Palani",
-      "Employee_ID": "1234"
+      "First_Name": "Raj",
+      "Last_Name": "Kumar",
+      "Employee_ID": "102"
     }
   ];
 
@@ -243,38 +243,38 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should be get', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Parent Task List', inject([CommonServiceService], (service: CommonServiceService) => {
     service.getParentTask().subscribe(data => { component.parentTaskList = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Task Details', inject([CommonServiceService], (service: CommonServiceService) => {
     service.getTaskManager().subscribe(data => { component.pagedItems = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Project Details', inject([CommonServiceService], (service: CommonServiceService) => {
     service.getProjectDetails().subscribe(data => { component.projDetails = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
 
-  it('should be get', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Manager details', inject([CommonServiceService], (service: CommonServiceService) => {
     service.getManagerDetails().subscribe(data => { component.managerDetails = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get User Details', inject([CommonServiceService], (service: CommonServiceService) => {
     service.getUserDetails().subscribe(data => { component.userDetails = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Updated Task details', inject([CommonServiceService], (service: CommonServiceService) => {
     service.getTaskManager().subscribe(data => { component.pagedItems = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();

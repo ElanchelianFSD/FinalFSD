@@ -566,7 +566,7 @@
 					</div>
 				<div class="modal-body" *ngFor="let user of userDetails | filter : { radioUserTaskSearch : search.radioUserSearch}">
 					<label class="modContainer">{{user.First_Name}}, {{user.Last_Name}}
-						<input type="radio" name="radio4" [(ngModel)]="selectedUser" [id]="'user_'+i" [value]="user.User_ID">
+						<input type="radio" name="radio4" [(ngModel)]="selectedUser" [id]="user.User_ID" [value]="user.User_ID">
 						<span class="checkmark"></span>
 					</label>
 				</div>

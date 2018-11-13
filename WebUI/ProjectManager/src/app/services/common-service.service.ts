@@ -40,7 +40,7 @@ export class CommonServiceService {
   }
 
   submitProject(project) {
-    debugger;
+   
     if(project.Project_ID==0){
       return this.http.post(vURL + "api/ProjectManager/Project/Insert", project, httpOptions);
       }
@@ -50,8 +50,8 @@ export class CommonServiceService {
       }
   }
 
-  SuspendProject(project) {
-    return this.http.post(vURL + "api/Project/SuspendProjectDetail", project, httpOptions);
+  SuspendProject(project) {    
+    return this.http.post(vURL + "api/ProjectManager/Project/Update", project, httpOptions);
   }
   // Code for Task screen
 
@@ -59,7 +59,7 @@ export class CommonServiceService {
     return this.http.get(vURL + "api/TaskManager/ViewTask");
   }
 
-  submitTask(task) {
+  submitTask(task) {    
     if(task.Task_ID==0){
     return this.http.post(vURL + "api/TaskManager/AddTask", task, httpOptions);
     }

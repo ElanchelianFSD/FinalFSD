@@ -17,6 +17,7 @@ namespace ProjectManager.DataAccess
             using (ProjectManagerEntities projectEntity = new ProjectManagerEntities())
             {
                 projectDetails = (from projectDts in projectEntity.Projects
+                                  where projectDts.Status == true
                                   select new ProjectModel
                                   {
                                       Project_ID = projectDts.Project_ID,
@@ -28,10 +29,13 @@ namespace ProjectManager.DataAccess
                                       NoOfTasks = projectDts.Tasks.Where(x => x.Project_ID == projectDts.Project_ID).Count(),
                                       Manager_ID = projectDts.Manager_ID,
                                       CompletedTasks = projectDts.Tasks.Where(x => x.IsActive == false && x.Project_ID == projectDts.Project_ID).Count(),
-                                      Active_Progress = (projectDts.Tasks.Where(x => x.IsActive == false && x.Project_ID == projectDts.Project_ID).Count() * 100) / projectDts.Tasks.Where(x => x.Project_ID == projectDts.Project_ID).Count()
+                                      Active_Progress =
+                                      ((projectDts.Tasks.Where(x => x.Project_ID == projectDts.Project_ID).Count() > 0) ?
+                                      (projectDts.Tasks.Where(x => x.IsActive == false && x.Project_ID == projectDts.Project_ID).Count() * 100) / projectDts.Tasks.Where(x => x.Project_ID == projectDts.Project_ID).Count() : 0),
+
                                   }).OrderByDescending(x => x.Project_ID).ToList();
             }
-            
+
             return projectDetails;
         }
 

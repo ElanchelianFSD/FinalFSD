@@ -273,6 +273,7 @@ export class AppComponent implements OnInit {
   }
 
   public SuspendProject(proj) {
+    proj.Status = 0;
     this.appServices.SuspendProject(proj).subscribe(data => {
       if (data) {
         Swal('Success', `Data Suspended successfully...`, 'success');
@@ -316,7 +317,7 @@ export class AppComponent implements OnInit {
 
     if (this.myForm.valid && vProjName != "" && vParentTask != "" && vUserName != "") {
       if (this.compareTwoDates(this.myForm.value)) {
-
+        debugger;
         var vTaskForm = {
           Task_ID: VID,
           Parent_ID: vParentTask,
@@ -398,9 +399,7 @@ export class AppComponent implements OnInit {
   getUserDetails() {
 
     this.appServices.getUserDetails().subscribe(data => {
-
       this.userDetails = data;
-
     });
   };
 
@@ -413,7 +412,9 @@ export class AppComponent implements OnInit {
       {
         VID=0;
       }
-      this.appServices.submitUser(this.addUserForm.value).subscribe(data => {
+      if(VID == 0)
+      {
+        this.appServices.submitUser(this.addUserForm.value).subscribe(data => {
         if (data) {
           Swal('Success', `Data ${VID == 0 ? 'Added' : 'Updated'} successfully...`, 'success');
           this.AddUserResetTask();
@@ -422,13 +423,27 @@ export class AppComponent implements OnInit {
         else {
           Swal('Failed', 'Please try again..', 'error');
         }
-      });
+        });
+      }
+      else if (VID >=1)
+      {
+        this.appServices.updateUser(this.addUserForm.value).subscribe(data => {
+          if (data) {
+            Swal('Success', `Data ${VID == 0 ? 'Added' : 'Updated'} successfully...`, 'success');
+            this.AddUserResetTask();
+            this.callAllMethods();
+          }
+          else {
+            Swal('Failed', 'Please try again..', 'error');
+          }
+          });
+      }
     }
   };
 
   public EditUser(user) {
-    this.addUserForm.setValue(user);
     this.isUserUpdate = true;
+    this.addUserForm.setValue(user);    
   };
 
   public DeleteUser(user) {

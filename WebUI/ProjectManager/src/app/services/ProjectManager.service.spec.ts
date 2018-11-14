@@ -1,16 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonServiceService } from './common-service.service';
+import { ProjectManagerService } from './ProjectManager.service';
+ 
 
-describe('CommonServiceService', () => {
+describe('ProjectManagerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      providers: [CommonServiceService]
+      providers: [ProjectManagerService]
     });
   });
 
-  it('should be created', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be created', inject([ProjectManagerService], (service: ProjectManagerService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { Component, NgModule, OnInit, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonServiceService } from './services/common-service.service';
+import { ProjectManagerService } from './services/ProjectManager.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PagerService } from './services/pageService';
 import { AlertsModule } from 'angular-alert-module';
@@ -229,7 +229,7 @@ describe('AppComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA],
       imports: [HttpClientModule, RouterTestingModule, BrowserAnimationsModule, FormsModule, AlertsModule, ReactiveFormsModule],
-      providers: [{ provide: CommonServiceService, useValue: mockService }, PagerService,OrderPipe]
+      providers: [{ provide: ProjectManagerService, useValue: mockService }, PagerService,OrderPipe]
     }).compileComponents();
   }));
 
@@ -243,38 +243,38 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should be get Parent Task List', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Parent Task List', inject([ProjectManagerService], (service: ProjectManagerService) => {
     service.getParentTask().subscribe(data => { component.parentTaskList = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get Task Details', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Task Details', inject([ProjectManagerService], (service: ProjectManagerService) => {
     service.getTaskManager().subscribe(data => { component.pagedItems = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get Project Details', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Project Details', inject([ProjectManagerService], (service: ProjectManagerService) => {
     service.getProjectDetails().subscribe(data => { component.projDetails = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
 
-  it('should be get Manager details', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Manager details', inject([ProjectManagerService], (service: ProjectManagerService) => {
     service.getManagerDetails().subscribe(data => { component.managerDetails = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get User Details', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get User Details', inject([ProjectManagerService], (service: ProjectManagerService) => {
     service.getUserDetails().subscribe(data => { component.userDetails = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();
   }));
 
-  it('should be get Updated Task details', inject([CommonServiceService], (service: CommonServiceService) => {
+  it('should be get Updated Task details', inject([ProjectManagerService], (service: ProjectManagerService) => {
     service.getTaskManager().subscribe(data => { component.pagedItems = data; });
     fixture.detectChanges();
     expect(service).toBeTruthy();

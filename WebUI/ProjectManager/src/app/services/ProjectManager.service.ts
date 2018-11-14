@@ -15,11 +15,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-export class CommonServiceService {
+export class ProjectManagerService {
 
   constructor(public http: HttpClient) { }
 
-  // Common Code
+
   getParentTask() {
     return this.http.get(vURL + "api/TaskManager/GetParentTask");
   }

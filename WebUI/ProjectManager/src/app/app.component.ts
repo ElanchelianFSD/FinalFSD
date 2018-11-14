@@ -1,7 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonServiceService } from './services/common-service.service';
+import { ProjectManagerService } from './services/ProjectManager.service';
 import { Http, Response } from '@angular/http';
 import { PagerService } from './services/pageService';
 import { AlertsModule } from 'angular-alert-module';
@@ -28,7 +28,7 @@ declare var $: any;
 })
 
 export class AppComponent implements OnInit {
-  constructor(private appServices: CommonServiceService, private pageService: PagerService,
+  constructor(private appServices: ProjectManagerService, private pageService: PagerService,
     private fb: FormBuilder, private orderPipe: OrderPipe) { }
 
   title = 'Project-Manager';

@@ -190,11 +190,7 @@ export class AppComponent implements OnInit {
     });
   };
 
-  getProjectName() {
-    this.appServices.getProjectName().subscribe(data => {
-      this.projectNameList = data;
-    });
-  };
+ 
 
 // Add Project
   onProjectSubmit() {

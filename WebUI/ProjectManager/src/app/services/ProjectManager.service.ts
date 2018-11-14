@@ -24,7 +24,7 @@ export class ProjectManagerService {
     return this.http.get(vURL + "api/TaskManager/GetParentTask");
   }
 
-  // Code for Project screen
+//
 
   getProjectDetails() {
     return this.http.get(vURL + "api/ProjectManager/Project/GetAll");
@@ -34,9 +34,6 @@ export class ProjectManagerService {
     return this.http.get(vURL + "api/ProjectManager/User/GetAll");
   }
 
-  getProjectName() {
-    return this.http.get(vURL + "api/Project/GetProjectName");
-  }
 
   submitProject(project) {
    
